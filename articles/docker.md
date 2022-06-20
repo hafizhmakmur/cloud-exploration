@@ -85,7 +85,7 @@ Selamat, anda sudah sukses mengunduh dan mengeksekusi sebuah image dari registry
 
 ## Part 5. Create and Build Simple Custom Container using Dockerfile
 
-Setelah mengunduh image yang sudah jadi dari repository, kini saatnya kita untuk membuat container kita sendiri. Docker Tutorial menyediakan sebuah web app sederhana (To-Do App) yang dapat dijadikan contoh untuk hal ini. Untuk mendapatkan app tersebut, dapat dilakukan perintah
+Setelah mengunduh image yang sudah jadi dari repository, kini saatnya kita untuk membuat container kita sendiri. Docker Tutorial menyediakan sebuah web app sederhana (To-Do App) yang dapat dijadikan contoh untuk hal ini. Anda dapat melihat isi dari web app itu dalam [link ini](../resources/app/). Untuk mendapatkan app tersebut dalam mesin cloud yang kita miliki, dapat dilakukan perintah
 
     $ wget localhost:80/assets/app.zip
     $ sudo apt install unzip
