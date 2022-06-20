@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getting-started-deployment
+  labels:
+    app: GettingStartedApp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: GettingStartedApp
+  template:
+    metadata:
+      labels:
+        app: GettingStartedApp
+    spec:
+      containers:
+      - name: getting-started
+        image: mcmoor/getting-started
+        ports:
+        - containerPort: 3000
+          name: http-web-svc
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: getting-started-service
+  labels:
+    app: GettingStartedApp
+spec:
+  type: NodePort #LoadBalancer #NodePort
+  selector:
+    app: GettingStartedApp
+  ports:
+  - name: geting-started-service-port
+    port: 3000
+    targetPort: http-web-svc
+    nodePort: 30000
