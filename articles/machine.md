@@ -16,7 +16,7 @@ Untuk kesempatan ini, penulis tidak mengubah setting apapun kecuali mengubah OS 
 
 Setelah itu, pembaca dapat mengscroll ke bawah dan menekan tombol **Create** untuk membuat sebuah VM.
 
-Dalam kesempatan ini, penulis membuat dua buah VM masing-masing bernama **Control-Node** dan **Managed-Node**
+Dalam kesempatan ini, penulis membuat tiga buah VM masing-masing bernama **Control-Node**, **Managed-Node-1**, dan **Managed-Node-2**.
 
 ![Two VM](../images/server_created.png)
 

@@ -1,5 +1,5 @@
 ---
-- hosts: fresh_machine
+- hosts: ManagedNode
   become: true
   vars:
   - default_user: mcmoor
