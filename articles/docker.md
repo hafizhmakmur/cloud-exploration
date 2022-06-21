@@ -6,6 +6,8 @@ Docker adalah
 
 Dalam tahap ini dilakukan instalasi docker menggunakan repository. Langkah-langkah lengkap dapat dilihat dalam [link ini](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
 
+### Update `Apt` dan Install Requirement
+
 Terlebih dahulu dilakukan update paling terbaru terhadp `apt` dan juga instalasi terhadap beberapa program lain yang akan dibutuhkan. Perintah untuk melakukan hal tersebut adalah sebagai berikut.
 
     $ sudo apt-get update
@@ -15,16 +17,22 @@ Terlebih dahulu dilakukan update paling terbaru terhadp `apt` dan juga instalasi
         gnupg \
         lsb-release
 
+### Tambah Kunci GPG Docker
+
 Setelah itu, tambahkan kunci GPG resmi milik Docker
 
     $ sudo mkdir -p /etc/apt/keyrings
     $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+### Tambah Repository
 
 Dan kemudian perintah berikut untuk menambahkan repository yang dibutuhkan 
 
     $ echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
         $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+### Install Docker
 
 Pada akhirnya, kita dapat benar-benar menginstall docker beserta beberapa program pendampingnya. Perintah untuk melakukan hal tersebut adalah sebagaimana berikut
 
