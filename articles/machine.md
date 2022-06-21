@@ -1,5 +1,12 @@
 # Chapter 0 : Konfigurasi Mesin
 
+## Daftar Isi
+
+* [Chapter 0 : Konfigurasi Mesin](articles/machine.md)
+* [Chapter 1 : Docker](articles/docker.md)
+* [Chapter 2 : Ansible](articles/ansible.md)
+* [Chapter 3 : Kubernetes](articles/kubernetes.md) 
+
 Untuk memudahkan eksplorasi setelahnya, dibutuhkan beberapa mesin yang dapat digunakan untuk melakukan berbagai percobaan yang akan dilakukan. Untuk itu, penulis menggunakan beberapa mesin gratisan yang bisa disediakan oleh Google dalam Google Cloud Platform dengan memanfaatkan bonus dari [GCP Free Tier](https://cloud.google.com/free). Pembaca dapat menggunakan mesin dari tempat lain atau malah menggunakan mesin pribadi namun beberapa keunggulan dari menggunakan mesin dalam cloud diantaranya adalah minimnya kuota dan cepatnya internet yang dimiliki oleh mesin Google serta kemudahan untuk membuang dan mengunakan mesin lain jika terjadi kesalahan instalasi yang parah.
 
 Jika pembaca sudah memiliki akun GCP dan membuat proyek baru, pembaca dapat membuka **Compute Engine > VM Instances** untuk membuat beberapa instansi VM baru.

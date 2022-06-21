@@ -1,6 +1,15 @@
 # Chapter 1: Docker
 
-Docker adalah
+## Daftar Isi
+
+* [Chapter 0 : Konfigurasi Mesin](articles/machine.md)
+* [Chapter 1 : Docker](articles/docker.md)
+* [Chapter 2 : Ansible](articles/ansible.md)
+* [Chapter 3 : Kubernetes](articles/kubernetes.md) 
+
+Docker adalah satuan platform yang mempaket software beserta berbagai requirement yang dibutuhkan sehingga software dapat dijalankan dimana saja dengan mudah. Hal ini dilakukan dengan membuat `container` yang berisi seluruh hal yang dibutuhkan oleh sebuah aplikasi dan mengisolasi aplikasi tersebut dari bagian lain dari sebuah mesin. Untuk membuat `container` kadang dapat digunakan `image` yang merupakan file yang berisi instruksi mengenai pembentukan `container`.
+
+Dalam tahap ini kita akan melakukan instalasi docker serta membuat sebuah `container` yang berisi sebuah web app yang dapat dijalankan.
 
 ## Part 0. Instalasi Docker
 
@@ -155,3 +164,7 @@ Pada akhirnya kita dapat melakukan `push` image kita ke repository tersebut deng
 Untuk tahap selanjutnya, kita dapat melakukan `pull` dari **USER_NAME_ANDA/getting-started** untuk langsung mendapatkan image yang sudah kita buat dalam tahap ini.
 
 ## Next, [Chapter 2 : Ansible](ansible.md)!
+
+## Sumber dan Referensi Lebih Lanjut
+* https://docs.docker.com/engine/install/ubuntu/
+* https://hub.docker.com/r/docker/getting-started

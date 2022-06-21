@@ -1,8 +1,23 @@
 # Chapter 2 : Ansible
 
-Ansible adalah
+## Daftar Isi
 
-Keunggulan dari Ansible adalah
+* [Chapter 0 : Konfigurasi Mesin](articles/machine.md)
+* [Chapter 1 : Docker](articles/docker.md)
+* [Chapter 2 : Ansible](articles/ansible.md)
+* [Chapter 3 : Kubernetes](articles/kubernetes.md) 
+
+Ansible adalah sebuah tool untuk melakukan otomasi manajemen berbagai server. Tool ini ditulis berdasarkan Python dan melakukan koneksi berbasis SSH. Dengan tool ini, maka pengguna dapat mengotomasi beberapa script yang mungkin akan dijalankan kepada beberapa mesin sekaligus.
+
+Keunggulan dari Ansible untuk proses deployment adalah:
+* Ansible tidak memerlukan instalasi agent pada mesin target karena Ansible menggunakan protokol SSH untuk komunikasi.
+* Ansible Playbook dapat digunakan untuk menyatukan seluruh script dalam file YAML yang lebih mudah digunakan dan dibaca dari JSON.
+* Ansible sangat mudah digunakan baik untuk mesin yang sedikit atau banyak. Dengan kata lain, Ansible memiliki scalability yang tinggi.
+
+Sedangkan kekurangan dari Ansible adalah:
+* Modul Ansible sederhana dan mudah digunakan namun juga tidak dapat menangani perintah yang sangat kompleks.
+* Ansible tidak memiliki support yang baik terhadap Windows. Ansible juga tidak memiliki GUI yang memiliki semua fitur karena Ansible utamanya adalah tool untuk command-line
+* Ansible tidak menyimpan state sehingga tidak dapat mengecek dependensi. Oleh karena itu, Ansible hanya dapat melakukan perintah secara sekuensial dari awal sampai akhir atau gagal 
 
 Pada kesempatan ini, kita akan membuat sebuah script Ansible yang dapat memanipulasi beberapa mesin kosong sehingga dapat mengeksekusi web app To-Do App yang sudah dibuat sebelumnya.
 
@@ -47,7 +62,7 @@ Jika instalasi berhasil, pembaca akan melihat hasil sebagaimana berikut
 
 Selamat, anda sudah berhasil menginstall dan menggunakan Ansible!
 
-## Part 1. Instalasi Docker dalam Ansible Playbook 
+## Part 1. Instalasi Docker menggunakan Ansible Playbook 
 
 Untuk memberikan perintah sederhana kepada masing-masing **Managed Node** dapat dituliskan perintah `ansible -m <perintah>` seperti perintah `ping` pada contoh sebelumnya. Namun untuk melaksanankan perintah yang jauh lebih kompleks dan panjang, dibutuhkan **Ansible Playbook** yang dapat menggunakan seluruh perintah yang disatukan dalam sebuah file YAML dan langsung mengeksekusinya. Oleh karena itu, untuk melakukan tahap berikutnya, dibutuhkan sebuah file YAML yang merepresentasikan seluruh perintah yang dibutuhkan.
 
@@ -115,7 +130,7 @@ Pada akhirnya kita dapat [menginstall docker](docker.md#install-docker) dengam m
     update_cache: true
 ```
 
-## Part 2. Pull dan Run Docker Container dalam Ansible Playbook
+## Part 2. `Pull` dan `Run` Docker Container menggunakan Ansible Playbook
 
 Dengan Docker sudah terinstall dengan baik dalam **Managed Node**, sekarang kita dapat menggunakan Docker untuk melakukan `pull` dan `run` image yang kita inginkan. Namun terlebih dahulu dibutuhkan instalasi Python library yang dibutuhkan untuk manipulasi Docker setelahnya. Hal itu dapat dilakukan dengan task berikut ini
 
@@ -151,6 +166,8 @@ Pada akhirnya kita dapat melakukan [`run` terhadap image tersebut kedalam sebuah
 
 Dapat diperhatikan bahwa task ini pada dasarnya merupakan konversi dari perintah `docker run -dp 3000:3000 USER_NAME_ANDA/getting-started` yang sudah dilakukan sebelumnya. Namun, ada satu tambahan menarik yaitu dictionary `restart_policy: "unless-stopped"` yang bertujuan agar container ini akan langsung direstart ketika mesin melakukan reboot. Pada akhirnya laporan mengenai container yang sudah dibuat akan tersimpan dalam variable `docker_info`.
 
+## Part 3. Eksekusi file YAML untuk Ansible Playbook
+
 File lengkap YAML yang sudah dituliskan dapat dilihat dalam file [docker_playbook.yaml](../resources/docker_playbook.yaml) yang sudah penulis sediakan. Untuk mengeksekusi playbook ini, dapat dilakukan perintah
 
     $ ansible-playbook docker_playbook.yaml
@@ -168,3 +185,11 @@ Anda dapat mengecek langsung hasil dari ansible playbook ini dengan melakukan SS
 Selamat, anda sudah berhasil untuk menggunakan Ansible Playbook untuk mengeksekusi perintah dalam file YAML!
 
 ## Next, [Kubernetes](kubernetes.md)!
+
+## Sumber dan Referensi Lebih Lanjut
+* https://www.upguard.com/blog/top-5-best-and-worst-attributes-of-ansible
+* https://cloudinfrastructureservices.co.uk/ansible-vs-puppet/
+* https://www.ansiblepilot.com/articles/install-docker-in-debian-like-systems-ansible-module-apt_key-apt_repository-and-apt/
+* https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-20-04
+* https://faun.pub/launch-and-configure-docker-container-using-ansible-playbook-95607550623f
+* https://www.digitalocean.com/community/questions/how-to-start-docker-containers-automatically-after-a-reboot
